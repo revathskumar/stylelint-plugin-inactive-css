@@ -1,3 +1,5 @@
+# :warning: CAUTION: This is in very early stage development
+
 ## stylelint-plugin-inactive-css
 
 ## Usage

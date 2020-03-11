@@ -1,0 +1,20 @@
+{
+  "name": "stylelint-plugin-inactive-css",
+  "version": "0.0.0",
+  "description": "## Usage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "stylelint": "^7.0.0 || ^8.0.0"
+  },
+  "keywords": [
+    "stylelint-plugin",
+    "stylelint",
+    "inactive-css",
+    "css"
+  ],
+  "author": "Revath S Kumar <rsk@revathskumar.com> (http://blog.revathskumar.com/)",
+  "license": "MIT"
+}

@@ -4,10 +4,11 @@
   "description": "## Usage",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "peerDependencies": {
-    "stylelint": "^7.0.0 || ^8.0.0"
+    "stylelint": "^12.0.0 || ^13.0.0"
   },
   "keywords": [
     "stylelint-plugin",
@@ -16,5 +17,13 @@
     "css"
   ],
   "author": "Revath S Kumar <rsk@revathskumar.com> (http://blog.revathskumar.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "./jest-setup.js"
+    ]
+  }
 }

@@ -2,13 +2,13 @@
 const stylelint = require('stylelint');
 const declarationValueIndex = require('stylelint/lib/utils/declarationValueIndex');
 
-const { isFlexContainer } = require('../utils');
+const { isGridContainer } = require('../utils');
 
-const ruleName = 'inactive-css/flex';
+const ruleName = 'inactive-css/grid';
 const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: (propName) => `${propName} has no effect on this element
-  since it’s neither a flex container nor a grid container.
-  Try adding display:grid or display:flex.`,
+    since it’s neither a flex container nor a grid container.
+    Try adding display:grid or display:flex.`,
 });
 
 module.exports = stylelint.createPlugin(ruleName, function(primaryOption, secondaryOptionObject) {
@@ -29,12 +29,11 @@ module.exports = stylelint.createPlugin(ruleName, function(primaryOption, second
       const propResult = {};
 
       const props = [
-        'flex-wrap',
-        'align-content',
-        'align-items',
-        'gap',
-        'flex-direction',
-        'flex-flow',
+        'grid-auto-columns',
+        'grid-auto-flow',
+        'grid-auto-rows',
+        'grid-template',
+        'justify-items',
       ];
 
       props.forEach((prop) => {
@@ -45,12 +44,12 @@ module.exports = stylelint.createPlugin(ruleName, function(primaryOption, second
             propResult[prop].decl = decl;
           }
 
-          if (isFlexContainer(decl)) {
-            propResult[prop].isFlexContainer = true;
+          if (isGridContainer(decl)) {
+            propResult[prop].isGridContainer = true;
           }
         });
 
-        if (propResult[prop].found && !propResult[prop].isFlexContainer) {
+        if (propResult[prop].found && !propResult[prop].isGridContainer) {
           stylelint.utils.report({
             message: messages.expected(prop),
             node: propResult[prop].decl,

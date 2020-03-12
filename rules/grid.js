@@ -7,8 +7,7 @@ const { isGridContainer } = require('../utils');
 const ruleName = 'inactive-css/grid';
 const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: (propName) => `${propName} has no effect on this element
-    since it’s neither a flex container nor a grid container.
-    Try adding display:grid or display:flex.`,
+    since it’s not a grid container. Try adding display:grid`,
 });
 
 module.exports = stylelint.createPlugin(ruleName, function(primaryOption, secondaryOptionObject) {
